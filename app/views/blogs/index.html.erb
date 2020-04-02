@@ -1,0 +1,8 @@
+<% @blogs.each do |blog| %>
+  <div>
+    <%= blog.content %>
+    <%= link_to 'Show', blog %>
+    <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %>
+  </div>
+<% end %>
+<%= link_to 'New Blog', new_blog_path %>
