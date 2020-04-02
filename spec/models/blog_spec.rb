@@ -8,6 +8,6 @@ RSpec.describe Blog, type: :model do
   it "内容がなければ無効な状態であること" do
     blog = FactoryBot.build(:blog, content: nil)
     blog.valid?
-    expect(blog.errors[:content]).to include("を入力してください")
+    expect(blog.errors[:content]).to include(I18n.t('errors.messages.blank'))
   end
 end
