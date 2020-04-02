@@ -29,16 +29,16 @@ ruby 2.6.3
 * メッセージ機能
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/1khQZIqICsbPB3duqLTJevljtIXI39yOozGArGbwpdsQ/edit#gid=1177389026
+https://docs.google.com/spreadsheets/d/1khQZIqICsbPB3duqLTJevljtIXI39yOozGArGbwpdsQ/edit?usp=sharing
 
 ## テーブル定義
-https://docs.google.com/spreadsheets/d/1Of_iDK2ZFj8295rTjh8LTzykmufWKHuNX74Lr8Zc3sQ/edit#gid=0
+https://docs.google.com/spreadsheets/d/1Of_iDK2ZFj8295rTjh8LTzykmufWKHuNX74Lr8Zc3sQ/edit?usp=sharing
 
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/1w5C-7OxPEM3uRpXwDptjCUOB6eVwJEitEPRWFBxt2gs/edit#gid=0
+https://docs.google.com/spreadsheets/d/1w5C-7OxPEM3uRpXwDptjCUOB6eVwJEitEPRWFBxt2gs/edit?usp=sharing
 
 ## 画面ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/1Hqn8RsnYXWPft-tKlVLVLjOAFirNT0bpaYxarlDUNrw/edit#gid=0
+https://docs.google.com/spreadsheets/d/1Hqn8RsnYXWPft-tKlVLVLjOAFirNT0bpaYxarlDUNrw/edit?usp=sharing
 
 ## 使用予定Gem
 * carrierwave
