@@ -1,0 +1,10 @@
+<%= link_to 'Back', blogs_path, remote: true %>
+<%= form_with(model: blog) do |form| %>
+  <div>
+    <%= form.text_area :content %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
