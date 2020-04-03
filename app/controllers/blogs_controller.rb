@@ -13,7 +13,10 @@ class BlogsController < ApplicationController
   end
 
   def new
-    @blog = Blog.new
+    @blog = Blog.new(
+      lat: params[:latitude], 
+      lng: params[:longitude],
+    )
   end
 
   def create
@@ -38,6 +41,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:content)
+    params.require(:blog).permit(:content, :lat, :lng)
   end
 end
