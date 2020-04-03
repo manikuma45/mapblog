@@ -1,6 +1,9 @@
 class BlogsController < ApplicationController
-
   before_action :set_blog, only: [:show, :destroy]
+
+  def home
+    @blogs = Blog.all
+  end
 
   def index
     @blogs = Blog.all
@@ -14,9 +17,10 @@ class BlogsController < ApplicationController
   end
 
   def create
+    @blogs = Blog.all
     @blog = Blog.new(blog_params)
     if @blog.save
-      redirect_to blogs_path
+      render :index
     else
       render :new
     end
@@ -24,7 +28,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to blogs_url
+    redirect_to home_url
   end
 
   private
