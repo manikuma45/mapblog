@@ -1,6 +1,6 @@
+<%= link_to 'Back', blogs_path, remote: true %>
 <%= form_with(model: blog) do |form| %>
   <div>
-    <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
 
@@ -8,4 +8,3 @@
     <%= form.submit %>
   </div>
 <% end %>
-<%= link_to 'Back', blogs_path, remote: true %>
