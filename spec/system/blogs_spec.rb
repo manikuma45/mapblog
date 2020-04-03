@@ -13,7 +13,11 @@ RSpec.describe "Blogs", type: :system do
         expect(page).to have_link('New Blog')
 
         click_link 'New Blog'
+        # get :new, format: :js
         # post new_blog_path, xhr: true
+        # xhr :post, new_blog_path
+        # get :new, xhr: true
+        
         # expect(page).to have_link('Back')
       end
     end
