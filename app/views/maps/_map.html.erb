@@ -85,17 +85,19 @@
       });
 
       if(markers[i][4] == null){
-        infowindow.setContent(markers[i][3]);
+        infowindow.setContent(
+          '<div style="max-width: 50px; max-height: 80px;">' + markers[i][3] + '</div>'
+        );
       } else {
-        infowindow.setContent(markers[i][3] + 
-        '<div><img src="' + markers[i][4] + '" width="50"></div>');
+        infowindow.setContent(
+          '<div><img src="' + markers[i][4] + '" width="50"></div>'
+        );
       }
             
       infowindow.open(map, marker);
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          var infowindow = new google.maps.InfoWindow();
           map.panTo({lat: markers[i][1], lng: markers[i][2]});
           if(newMarker != null){
             newMarker.setMap(null);
