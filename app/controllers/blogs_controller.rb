@@ -3,7 +3,16 @@ class BlogsController < ApplicationController
   before_action :set_blogs, only: [:home, :index, :create]
 
   def home
-    @markers_json = Blog.pluck(:id, :lat, :lng, :content).to_json
+    @markers_json = Blog.all.map do |blog|
+      [
+        blog.id,
+        blog.lat,
+        blog.lng,
+        blog.content,
+        blog.image.url
+      ]
+    end.to_json
+    
   end
 
   def index
@@ -44,6 +53,6 @@ class BlogsController < ApplicationController
   end
 
   def blog_params
-    params.require(:blog).permit(:content, :lat, :lng)
+    params.require(:blog).permit(:content, :lat, :lng, :image)
   end
 end
