@@ -1,6 +1,7 @@
 <%= link_to 'Back', blogs_path, remote: true %>
 <div>
   <%= @blog.content %>
+  <%= image_tag @blog.image.url if @blog.image? %>
   <hr>
 </div>
 <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
