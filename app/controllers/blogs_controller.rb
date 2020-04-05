@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
 
   def home
     @blogs = Blog.all
+    @markers_json = Blog.pluck(:id, :lat, :lng, :content).to_json
   end
 
   def index
