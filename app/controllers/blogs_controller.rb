@@ -1,13 +1,12 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :destroy]
+  before_action :set_blogs, only: [:home, :index, :create]
 
   def home
-    @blogs = Blog.all
     @markers_json = Blog.pluck(:id, :lat, :lng, :content).to_json
   end
 
   def index
-    @blogs = Blog.all
   end
 
   def show
@@ -21,7 +20,6 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blogs = Blog.all
     @blog = Blog.new(blog_params)
     if @blog.save
       redirect_to home_url
@@ -39,6 +37,10 @@ class BlogsController < ApplicationController
 
   def set_blog
     @blog = Blog.find(params[:id])
+  end
+
+  def set_blogs
+    @blogs = Blog.all.order(created_at: "DESC")
   end
 
   def blog_params
