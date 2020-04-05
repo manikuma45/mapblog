@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
     @blogs = Blog.all
     @blog = Blog.new(blog_params)
     if @blog.save
-      render :index
+      redirect_to home_url
     else
       render :new
     end
