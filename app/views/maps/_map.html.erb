@@ -86,6 +86,28 @@
       });
       
       infowindow.open(map, marker);
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          var infowindow = new google.maps.InfoWindow();
+          map.panTo({lat: markers[i][1], lng: markers[i][2]});
+          if(newMarker != null){
+            newMarker.setMap(null);
+            newMarker = null;
+          }
+          
+          $.ajax({
+            url: `blogs/${markers[i][0]}`,
+            type: 'GET',
+            success: function() {
+              console.log('success');
+            },
+            error: function() {
+              console.log('error')
+            }
+          });
+        }
+      })(marker, i));
     }
   }
 </script>
