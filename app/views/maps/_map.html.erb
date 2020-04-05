@@ -59,15 +59,15 @@
       newMarker.addListener('click', function() {
         this.setMap(null);
         $.ajax({
-        url: 'blogs',
-        type: 'GET',
-        success: function() {
-          console.log('success');
-        },
-        error: function() {
-          console.log('error')
-        },
-      });
+          url: 'blogs',
+          type: 'GET',
+          success: function() {
+            console.log('success');
+          },
+          error: function() {
+            console.log('error')
+          },
+        });
       });
     });
     
@@ -82,9 +82,15 @@
       
       var infowindow = new google.maps.InfoWindow({
         disableAutoPan: true,
-        content: markers[i][3],
       });
-      
+
+      if(markers[i][4] == null){
+        infowindow.setContent(markers[i][3]);
+      } else {
+        infowindow.setContent(markers[i][3] + 
+        '<div><img src="' + markers[i][4] + '" width="50"></div>');
+      }
+            
       infowindow.open(map, marker);
 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
