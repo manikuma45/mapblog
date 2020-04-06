@@ -1,0 +1,11 @@
+<div class="container"> 
+
+  <div id="blogs_area">
+    <%= render partial: 'blogs/index', locals: { blogs: @blogs } %>
+  </div>
+
+  <div id="map"></div>
+  <div id="markers" data-markers="<%= @markers_json %>"></div>
+  <%= render partial: 'maps/map' %>
+
+</div>
