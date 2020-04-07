@@ -1,0 +1,21 @@
+<h1><%= user.name %></h1>
+<%= link_to 'edit', edit_user_registration_path %>
+<hr>
+
+<% blogs.each do |blog| %>
+  <div>
+    <div>
+      <%= blog.user.name %>
+    </div>
+
+    <div>
+      <%= blog.content %>
+    </div>
+
+    <div class="blogs_image">
+      <%= image_tag blog.image.url if blog.image? %>
+    </div>
+
+    <hr>
+  </div>
+<% end %>
