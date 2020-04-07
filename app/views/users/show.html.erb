@@ -33,10 +33,6 @@
         }
       ],
     });
-
-    map.addListener('click', function(e) {
-      map.panTo({lat: e.latLng.lat(), lng: e.latLng.lng()}); 
-    });
     
     var markersJson = document.getElementById('markers').getAttribute('data-markers');
     var markers = JSON.parse(markersJson);
