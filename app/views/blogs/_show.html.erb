@@ -1,6 +1,10 @@
 <%= link_to 'Back', blogs_path, remote: true %>
 <div>
   <div>
+    <%= @blog.user.name %>
+  </div>
+
+  <div>
     <%= @blog.content %>
   </div>
 

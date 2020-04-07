@@ -20,15 +20,12 @@ header {
 #blogs_area {
   min-width: 300px;
   height:100%;
+  margin: 0 15px;
   overflow-y:scroll;
 }
 
 .blogs_image img {
   width: 100%;
-}
-
-.blogs_index_blog {
-  margin: 0 15px;
 }
 
 #map {

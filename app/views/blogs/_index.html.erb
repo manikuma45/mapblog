@@ -1,6 +1,12 @@
 <% blogs.each do |blog| %>
-  <div class="blogs_index_blog">
-    <%= blog.content %>
+  <div>
+    <div>
+      <%= blog.user.name %>
+    </div>
+
+    <div>
+      <%= blog.content %>
+    </div>
 
     <div class="blogs_image">
       <%= image_tag blog.image.url if blog.image? %>
