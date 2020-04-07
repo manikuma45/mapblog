@@ -1,6 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :destroy]
   before_action :set_blogs, only: [:home, :index, :create]
+  before_action :ensure_correct_user, only: [:destroy]
 
   def home
     @markers_json = Blog.all.map do |blog|
@@ -53,5 +54,12 @@ class BlogsController < ApplicationController
 
   def blog_params
     params.require(:blog).permit(:content, :lat, :lng, :image)
+  end
+
+  def ensure_correct_user
+    @blog = Blog.find(params[:id])
+    if @blog.user_id != current_user.id
+      redirect_to new_user_session_path
+    end
   end
 end
