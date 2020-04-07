@@ -1,4 +1,4 @@
-<h1><%= user.name %></h1>
+<h1><%= @user.name %></h1>
 <%= link_to 'edit', edit_user_registration_path %>
 <hr>
 
@@ -16,6 +16,7 @@
       <%= image_tag blog.image.url if blog.image? %>
     </div>
 
+    <%= link_to 'Show', blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" %>
     <hr>
   </div>
 <% end %>
