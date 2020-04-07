@@ -8,7 +8,7 @@ class UsersController < ApplicationController
         blog.lat,
         blog.lng,
         blog.content,
-        blog.image.url
+        blog.image.thumb.url
       ]
     end.to_json
   end

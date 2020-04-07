@@ -11,6 +11,11 @@ header {
   height: 50px;
 }
 
+img[src*="/uploads/user/icon/"],
+img[src*="/uploads/user/icon/"] { 
+  border-radius:50%; 
+}
+
 .container {
   display: flex;
   width: 100%;
@@ -18,7 +23,7 @@ header {
 }
 
 #blogs_area {
-  min-width: 300px;
+  width: 300px;
   height:100%;
   margin: 0 15px;
   overflow-y:scroll;

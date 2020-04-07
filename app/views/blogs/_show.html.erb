@@ -1,7 +1,10 @@
 <%= link_to "Back", :back, remote: true  %>
 <div>
   <div>
-    <%= link_to "#{@blog.user.name}", user_path(id: @blog.user.id) %>
+    <%= link_to user_path(id: @blog.user.id) do %>
+      <%= image_tag @blog.user.icon.thumb.url, class: 'icon' if @blog.user.icon? %>
+      <%= @blog.user.name %>
+    <% end %>
   </div>
 
   <div>

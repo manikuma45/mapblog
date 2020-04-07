@@ -3,6 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
+
+  mount_uploader :icon, IconUploader
   
   has_many :blogs, dependent: :destroy
 end

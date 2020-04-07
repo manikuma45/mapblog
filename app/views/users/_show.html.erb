@@ -1,4 +1,7 @@
-<h1><%= @user.name %></h1>
+<h1>
+<%= image_tag @user.icon.url, class: 'icon' if current_user.icon? %>
+<%= @user.name %>
+</h1>
 
 <% if current_user.id == @user.id %>
   <%= link_to 'edit', edit_user_registration_path %>
@@ -8,7 +11,10 @@
 <% blogs.each do |blog| %>
   <div>
     <div>
-      <%= blog.user.name %>
+      <%= link_to user_path(id: blog.user.id) do %>
+        <%= image_tag blog.user.icon.thumb.url, class: 'icon' if blog.user.icon? %>
+        <%= blog.user.name %>
+      <% end %>
     </div>
 
     <div>
