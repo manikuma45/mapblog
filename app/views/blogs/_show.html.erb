@@ -1,7 +1,7 @@
 <%= link_to 'Back', blogs_path, remote: true %>
 <div>
   <div>
-    <%= @blog.user.name %>
+    <%= link_to "#{@blog.user.name}", user_path(id: @blog.user.id) %>
   </div>
 
   <div>

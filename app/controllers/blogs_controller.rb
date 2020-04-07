@@ -12,7 +12,6 @@ class BlogsController < ApplicationController
         blog.image.url
       ]
     end.to_json
-    
   end
 
   def index

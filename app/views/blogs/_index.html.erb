@@ -1,7 +1,7 @@
 <% blogs.each do |blog| %>
   <div>
     <div>
-      <%= blog.user.name %>
+      <%= link_to "#{blog.user.name}", user_path(id: blog.user.id) %>
     </div>
 
     <div>
