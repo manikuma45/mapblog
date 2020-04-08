@@ -7,4 +7,7 @@ class User < ApplicationRecord
   mount_uploader :icon, IconUploader
   
   has_many :blogs, dependent: :destroy
+
+  has_many :likes, dependent: :destroy
+  has_many :like_blogs, through: :likes, source: :blog
 end

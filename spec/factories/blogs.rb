@@ -9,5 +9,10 @@ FactoryBot.define do
       content { "AliceBlog" }
       association :user, factory: :alice
     end
+
+    factory :bob_blog do
+      content { "BobBlog" }
+      association :user, factory: :bob
+    end
   end
 end
