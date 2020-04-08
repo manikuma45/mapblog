@@ -1,6 +1,8 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :destroy]
   before_action :set_blogs, only: [:home, :index, :create]
+  before_action :ensure_correct_user, only: [:destroy]
+  before_action :authenticate_user!
 
   def home
     @markers_json = Blog.all.map do |blog|
@@ -9,10 +11,10 @@ class BlogsController < ApplicationController
         blog.lat,
         blog.lng,
         blog.content,
-        blog.image.url
+        blog.image.thumb.url,
+        blog.user.icon.thumb.url,
       ]
     end.to_json
-    
   end
 
   def index
@@ -29,7 +31,7 @@ class BlogsController < ApplicationController
   end
 
   def create
-    @blog = Blog.new(blog_params)
+    @blog = current_user.blogs.build(blog_params)
     if @blog.save
       redirect_to home_url
     else
@@ -39,7 +41,7 @@ class BlogsController < ApplicationController
 
   def destroy
     @blog.destroy
-    redirect_to home_url
+    redirect_back(fallback_location: root_path)
   end
 
   private
@@ -54,5 +56,12 @@ class BlogsController < ApplicationController
 
   def blog_params
     params.require(:blog).permit(:content, :lat, :lng, :image)
+  end
+
+  def ensure_correct_user
+    @blog = Blog.find(params[:id])
+    if @blog.user_id != current_user.id
+      redirect_to new_user_session_path
+    end
   end
 end

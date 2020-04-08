@@ -1,3 +1,13 @@
+<h1>
+<%= image_tag @user.icon.url %>
+<%= @user.name %>
+</h1>
+
+<% if current_user.id == @user.id %>
+  <%= link_to 'edit', edit_user_registration_path %>
+<% end %>
+<hr>
+
 <% blogs.each do |blog| %>
   <div>
     <div>
@@ -18,7 +28,7 @@
     <%= link_to 'Show', blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" %>
 
     <% if current_user.id == blog.user_id %>
-      <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
+     <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
     <% end %>
     <hr>
   </div>
