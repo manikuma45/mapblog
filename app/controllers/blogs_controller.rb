@@ -2,6 +2,7 @@ class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :destroy]
   before_action :set_blogs, only: [:home, :index, :create]
   before_action :ensure_correct_user, only: [:destroy]
+  before_action :authenticate_user!
 
   def home
     @markers_json = Blog.all.map do |blog|
