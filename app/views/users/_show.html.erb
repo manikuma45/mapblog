@@ -25,6 +25,10 @@
       <%= image_tag blog.image.url if blog.image? %>
     </div>
 
+    <div id="likes_area_<%= blog.id %>">
+      <%= render partial: 'likes/like', locals: { blog: blog, like: Like.find_by(blog_id: blog.id, user_id: current_user.id) } %>
+    </div>
+
     <%= link_to 'Show', blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" %>
 
     <% if current_user.id == blog.user_id %>

@@ -22,7 +22,6 @@ class BlogsController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(blog_id: @blog.id)
-    @likes_count = Like.where(blog_id: @blog.id).count
   end
 
   def new
