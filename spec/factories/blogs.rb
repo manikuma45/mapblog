@@ -1,7 +1,13 @@
 FactoryBot.define do
   factory :blog do
-    content { "MyText" }
+    content { "MyBlog" }
     lat { "35.6581" }
     lng { "139.7017" }
+    association :user
+
+    factory :alice_blog do
+      content { "AliceBlog" }
+      association :user, factory: :alice
+    end
   end
 end

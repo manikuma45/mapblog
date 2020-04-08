@@ -19,6 +19,8 @@ gem 'unicorn'
 gem 'mini_racer', platforms: :ruby
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'devise'
+gem 'devise-i18n'
 
 
 group :development, :test do
