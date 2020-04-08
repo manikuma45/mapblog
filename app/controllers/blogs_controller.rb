@@ -10,7 +10,8 @@ class BlogsController < ApplicationController
         blog.lat,
         blog.lng,
         blog.content,
-        blog.image.thumb.url
+        blog.image.thumb.url,
+        blog.user.icon.thumb.url,
       ]
     end.to_json
   end
