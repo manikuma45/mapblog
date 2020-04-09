@@ -12,4 +12,4 @@
 
 <% end %>
 
-<%= blog.likes.count %>
+<%= blog.likes.count if blog.likes.count != 0 %>
