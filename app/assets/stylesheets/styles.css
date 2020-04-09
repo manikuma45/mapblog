@@ -12,7 +12,6 @@ header {
 }
 
 /* マーカーアイコン */
-img[src*="/uploads/user/icon/"],
 img[src*="/uploads/user/icon/"] { 
   border-radius:50%; 
 }
