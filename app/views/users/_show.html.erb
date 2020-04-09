@@ -5,6 +5,8 @@
 
 <% if current_user.id == @user.id %>
   <%= link_to 'edit', edit_user_registration_path %>
+<% else %>
+  <%= render partial: 'users/follow_form', locals: { user: @user } %>
 <% end %>
 
 <%= link_to 'Blogs', user_path(id: @user.id) %>
