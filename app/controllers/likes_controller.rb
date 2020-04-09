@@ -23,4 +23,9 @@ class LikesController < ApplicationController
       ]
     end.to_json
   end
+
+  def users
+    blog = Blog.find(params[:blog_id])
+    @users = blog.like_users
+  end
 end

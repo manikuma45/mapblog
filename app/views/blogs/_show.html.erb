@@ -16,6 +16,12 @@
   </div>
 
   <hr>
+
+  <% if blog.likes.count != 0 %>
+    <%= link_to 'Like Users', blog_like_users_path(blog.id), remote: true %>
+  <% end %>
+
+  <hr>
 </div>
 
 <div id="likes_area_<%= blog.id %>">

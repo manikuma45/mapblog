@@ -5,12 +5,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show] do
+  resources :users, only: [:show, :index] do
     get 'likes', to: 'likes#like_blogs'
   end
   get 'users/blog_show'
 
-  resources :blogs
+  resources :blogs do
+    get 'like_users', to: 'likes#users'
+  end
   get 'home', to: 'blogs#home'
   root 'blogs#home'
 end
