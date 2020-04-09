@@ -21,6 +21,7 @@ gem 'ed25519'
 gem 'bcrypt_pbkdf'
 gem 'devise'
 gem 'devise-i18n'
+gem 'font-awesome-rails'
 
 
 group :development, :test do

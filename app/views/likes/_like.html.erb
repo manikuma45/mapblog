@@ -1,0 +1,15 @@
+<% if like.present? %>
+
+  <%= link_to like_path(id: like.id), method: :delete, remote: true do %>
+    <%= fa_icon("heart") %>
+  <% end %>
+
+<% else %>
+
+  <%= link_to likes_path(blog_id: blog.id), method: :post, remote: true do %>
+   <%= fa_icon("heart-o") %>
+  <% end %>
+
+<% end %>
+
+<%= blog.likes.count if blog.likes.count != 0 %>

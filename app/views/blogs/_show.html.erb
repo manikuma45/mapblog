@@ -1,21 +1,31 @@
 <%= link_to "Back", :back, remote: true  %>
 <div>
   <div>
-    <%= link_to user_path(id: @blog.user.id) do %>
-      <%= image_tag @blog.user.icon.thumb.url %>
-      <%= @blog.user.name %>
+    <%= link_to user_path(id: blog.user.id) do %>
+      <%= image_tag blog.user.icon.thumb.url %>
+      <%= blog.user.name %>
     <% end %>
   </div>
 
   <div>
-    <%= @blog.content %>
+    <%= blog.content %>
   </div>
 
   <div class="blogs_image">
-    <%= image_tag @blog.image.url if @blog.image? %>
+    <%= image_tag blog.image.url if blog.image? %>
   </div>
 
   <hr>
+
+  <% if blog.likes.count != 0 %>
+    <%= link_to 'Like Users', blog_like_users_path(blog.id), remote: true %>
+  <% end %>
+
+  <hr>
+</div>
+
+<div id="likes_area_<%= blog.id %>">
+  <%= render partial: 'likes/like', locals: { blog: blog, like: @like }  %>
 </div>
 
 <% if current_user.id == blog.user_id %>
