@@ -9,7 +9,7 @@ class LikesController < ApplicationController
     @blog = @like.blog
   end
 
-  def like_blogs
+  def index
     @user = User.find(params[:user_id])
     @blogs = @user.like_blogs.order(created_at: "DESC")
     @markers_json = @blogs.map do |blog|

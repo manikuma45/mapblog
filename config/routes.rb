@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   }
 
   resources :users, only: [:show, :index] do
-    get 'likes', to: 'likes#like_blogs'
+    get 'likes', to: 'likes#index'
   end
   get 'users/blog_show'
 
