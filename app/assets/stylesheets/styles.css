@@ -41,6 +41,6 @@ img[src*="/uploads/user/icon/"] {
   color: red;
 }
 
-.registration_form, .session_form {
+.users_form {
   text-align: center;
 }
