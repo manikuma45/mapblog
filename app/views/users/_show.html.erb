@@ -6,30 +6,10 @@
 <% if current_user.id == @user.id %>
   <%= link_to 'edit', edit_user_registration_path %>
 <% end %>
+
+<%= link_to 'Blogs', user_path(id: @user.id) %>
+
+<%= link_to 'Likes', user_likes_path(@user.id) %>
 <hr>
 
-<% blogs.each do |blog| %>
-  <div>
-    <div>
-      <%= link_to user_path(id: blog.user.id) do %>
-        <%= image_tag blog.user.icon.thumb.url %>
-        <%= blog.user.name %>
-      <% end %>
-    </div>
-
-    <div>
-      <%= blog.content %>
-    </div>
-
-    <div class="blogs_image">
-      <%= image_tag blog.image.url if blog.image? %>
-    </div>
-
-    <%= link_to 'Show', blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" %>
-
-    <% if current_user.id == blog.user_id %>
-     <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
-    <% end %>
-    <hr>
-  </div>
-<% end %>
+<%= render partial: 'blogs/index', locals: { blogs: @blogs } %>

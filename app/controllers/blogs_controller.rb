@@ -21,6 +21,7 @@ class BlogsController < ApplicationController
   end
 
   def show
+    @like = current_user.likes.find_by(blog_id: @blog.id)
   end
 
   def new
@@ -61,7 +62,7 @@ class BlogsController < ApplicationController
   def ensure_correct_user
     @blog = Blog.find(params[:id])
     if @blog.user_id != current_user.id
-      redirect_to new_user_session_path
+      redirect_to root_path
     end
   end
 end
