@@ -61,7 +61,7 @@ class BlogsController < ApplicationController
 
   def ensure_correct_user
     @blog = Blog.find(params[:id])
-    if @blog.user_id != current_user.id
+    unless @blog.user_id == current_user.id
       redirect_to root_path
     end
   end
