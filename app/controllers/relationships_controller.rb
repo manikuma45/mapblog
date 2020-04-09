@@ -14,4 +14,14 @@ class RelationshipsController < ApplicationController
     relationship.destroy
     @user = relationship.followed
   end
+
+  def following
+    user = User.find(params[:user_id])
+    @users = user.following
+  end
+
+  def followers
+    user = User.find(params[:user_id])
+    @users = user.followers
+  end
 end

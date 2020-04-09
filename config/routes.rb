@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   resources :relationships, only: [:create, :destroy]
+  get 'relationships/following'
+  get 'relationships/followers'
 
   resources :likes, only: [:create, :destroy]
 

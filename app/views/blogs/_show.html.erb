@@ -17,7 +17,7 @@
 
   <hr>
 
-  <% if blog.likes.count != 0 %>
+  <% unless blog.likes.count == 0 %>
     <%= link_to 'Like Users', blog_like_users_path(blog.id), remote: true %>
     <hr>
   <% end %>

@@ -9,6 +9,9 @@
   <%= render partial: 'users/follow_form', locals: { user: @user } %>
 <% end %>
 
+<%= link_to 'Following', relationships_following_path(user_id: @user.id), remote: true%>
+<%= link_to 'Followers', relationships_followers_path(user_id: @user.id), remote: true %>
+
 <%= link_to 'Blogs', user_path(id: @user.id) %>
 
 <%= link_to 'Likes', user_likes_path(@user.id) %>
