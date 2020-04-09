@@ -40,3 +40,7 @@ img[src*="/uploads/user/icon/"] {
 .fa-heart {
   color: red;
 }
+
+.registration_form, .session_form {
+  text-align: center;
+}
