@@ -34,7 +34,7 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.build(blog_params)
     if @blog.save
-      redirect_to home_url
+      redirect_to root_url
     else
       render :new
     end

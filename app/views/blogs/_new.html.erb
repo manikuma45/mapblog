@@ -1,7 +1,10 @@
-<%= link_to 'Back', blogs_path, remote: true, onClick: "deleteNewMarker();" %>
+<%= link_to blogs_path, remote: true, onClick: "deleteNewMarker();" do %>
+  <%= fa_icon 'chevron-left' %>
+<% end %>
+
 <%= form_with(model: blog) do |form| %>
   <div>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: 'form-control', style: 'resize: none;'%>
   </div>
 
   <div>
@@ -13,6 +16,6 @@
   <%= form.hidden_field :lng %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class: 'btn'%>
   </div>
 <% end %>
