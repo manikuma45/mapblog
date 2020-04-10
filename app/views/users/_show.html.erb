@@ -1,15 +1,61 @@
-<h1>
-<%= image_tag @user.icon.url %>
-<%= @user.name %>
-</h1>
+<div class="text-center">
 
-<% if current_user.id == @user.id %>
-  <%= link_to 'edit', edit_user_registration_path %>
-<% end %>
+    <%= image_tag @user.icon.url %>
 
-<%= link_to 'Blogs', user_path(id: @user.id) %>
+    <h1><%= @user.name %></h1>
 
-<%= link_to 'Likes', user_likes_path(@user.id) %>
+  <div>
+    <% if current_user.id == @user.id %>
+      <%= link_to 'edit', edit_user_registration_path %>
+    <% else %>
+      <%= render partial: 'users/follow_form', locals: { user: @user } %>
+    <% end %>
+  </div>
+  
+</div>
+
 <hr>
+
+<div class="row">
+  <div class="col-xs-6">
+    <%= @user.following.count %>
+    <%= link_to 'Following', relationships_following_path(user_id: @user.id), remote: true %>
+  </div>
+
+  <div class="col-xs-6">
+    <%= @user.followers.count %>
+    <%= link_to 'Followers', relationships_followers_path(user_id: @user.id), remote: true %>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+
+  <% if @likes_blog == true %>
+
+    <div class='col-xs-6'>
+        <%= link_to 'Blogs', user_path(id: @user.id)%>
+    </div>
+
+    <div class='col-xs-6'>
+      <%= link_to 'Likes', user_likes_path(@user.id), class: 'likes_blog' %>
+    </div>
+
+  <% else %>
+
+    <div class='col-xs-6'>
+        <%= link_to 'Blogs', user_path(id: @user.id), class: 'likes_blog' %>
+    </div>
+
+    <div class='col-xs-6'>
+      <%= link_to 'Likes', user_likes_path(@user.id) %>
+    </div>
+
+  <% end %>
+  
+</div>
+
+<hr style="margin-top: 0;">
 
 <%= render partial: 'blogs/index', locals: { blogs: @blogs } %>
