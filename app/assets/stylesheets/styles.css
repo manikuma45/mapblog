@@ -65,6 +65,10 @@ img[src*="/uploads/user/icon/"] {
   width: 100%;
 }
 
+.link_to_blog {
+  display: block;
+}
+
 .fa-heart {
   color: red;
 }
