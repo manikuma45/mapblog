@@ -1,11 +1,18 @@
 <% users.each do |user| %>
 
-  <div style="background: white;">
-    <%= link_to user_path(id: user.id) do %>
-      <%= image_tag user.icon.thumb.url %>
-      <%= user.name %>
-    <% end %>
-    <%= render partial: 'users/follow_form', locals: { user: user } unless current_user.id == user.id %>
+  <div class="row", style="background: white";>
+
+    <div class="col-xs-8">
+      <%= link_to user_path(id: user.id) do %>
+        <%= image_tag user.icon.thumb.url %>
+        <%= user.name %>
+      <% end %>
+    </div>
+
+    <div class="col-xs-4">
+      <%= render partial: 'users/follow_form', locals: { user: user } unless current_user.id == user.id %>
+    </div>
+
   </div>
 
   <hr>
