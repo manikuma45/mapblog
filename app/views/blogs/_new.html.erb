@@ -3,19 +3,19 @@
 <% end %>
 
 <%= form_with(model: blog) do |form| %>
-  <div>
-    <%= form.text_area :content, class: 'form-control', style: 'resize: none;'%>
+  <div class="field">
+    <%= form.text_area :content, class: 'form-control' %>
   </div>
 
-  <div>
+  <div class="field">
     <%= form.label :image %>
-    <%= form.file_field :image %>
+    <%= form.file_field :image, class:'form-control' %>
   </div>
 
   <%= form.hidden_field :lat %>
   <%= form.hidden_field :lng %>
 
-  <div>
-    <%= form.submit class: 'btn'%>
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary pull-right' %>
   </div>
 <% end %>
