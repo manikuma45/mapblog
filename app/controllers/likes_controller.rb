@@ -22,6 +22,7 @@ class LikesController < ApplicationController
         blog.user.icon.thumb.url,
       ]
     end.to_json
+    @likes_blog = true
   end
 
   def users
