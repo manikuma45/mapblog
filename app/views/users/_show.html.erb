@@ -33,21 +33,21 @@
 
   <% if @likes_blog == true %>
 
-    <div class='col-xs-6'>
+    <div class='col-xs-3'>
         <%= link_to t('Blogs'), user_path(id: @user.id)%>
     </div>
 
-    <div class='col-xs-6'>
-      <%= link_to t('Likes'), user_likes_path(@user.id), class: 'likes_blog' %>
+    <div class='col-xs-offset-3 col-xs-3'>
+      <p class='likes_blog' ><%= t('Likes')%></p>
     </div>
 
   <% else %>
 
-    <div class='col-xs-6'>
-        <%= link_to t('Blogs'), user_path(id: @user.id), class: 'likes_blog' %>
+    <div class='col-xs-3'>
+        <p class='likes_blog' ><%= t('Blogs')%></p>
     </div>
 
-    <div class='col-xs-6'>
+    <div class='col-xs-offset-3 col-xs-3'>
       <%= link_to t('Likes'), user_likes_path(@user.id) %>
     </div>
 
