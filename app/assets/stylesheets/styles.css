@@ -80,6 +80,10 @@ img[src*="/uploads/user/icon/"] {
   width: 100%;
 }
 
+.fa-chevron-left {
+  margin-bottom: 15px;
+}
+
 .fa-heart {
   color: red;
 }
