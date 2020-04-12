@@ -2,6 +2,10 @@
   <%= fa_icon 'chevron-left' %>
 <% end %>
 
+<% if users.count == 0 %>
+  <p><%= t('No Users') %></p>
+<% end %>
+
 <% users.each do |user| %>
 
   <div class="row", style="background: white";>
