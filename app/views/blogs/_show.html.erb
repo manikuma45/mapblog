@@ -3,45 +3,42 @@
 <% end %>
 
 <div>
+  <%= link_to user_path(id: blog.user.id) do %>
+    <%= image_tag blog.user.icon.thumb.url %>
+    <%= blog.user.name %>
+  <% end %>
+</div>
 
+<div style="background: white;">
   <div>
-    <%= link_to user_path(id: blog.user.id) do %>
-      <%= image_tag blog.user.icon.thumb.url %>
-      <%= blog.user.name %>
-    <% end %>
+    <%= blog.content %>
   </div>
 
-  <div style="background: white;">
-    <div>
-      <%= blog.content %>
-    </div>
-
-    <div class="blogs_image">
-      <%= image_tag blog.image.url if blog.image? %>
-    </div>
-
-  </div>
-
-  <hr style="margin-bottom: 0;">
-
-  <div class="row">
-
-    <div id="likes_area_<%= blog.id %>" class="col-xs-6">
-      <%= render partial: 'likes/like', locals: { blog: blog, like: @like }  %>
-    </div>
-
-    <div  class="col-xs-6">
-      <%= link_to 'Like Users', blog_like_users_path(blog.id), remote: true %>
-    </div>
-
-  </div>
-
-  <div class="row">
-    <div class="col-xs-offset-6 col-xs-6">
-      <% if current_user.id == blog.user_id %>
-        <%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %>
-      <% end %>
-    </div>
+  <div class="blogs_image">
+    <%= image_tag blog.image.url if blog.image? %>
   </div>
 
 </div>
+
+<%= blog.created_at.strftime("%p%-I:%M・%Y年%-m月%-d日") %>
+
+<hr style="margin-bottom: 0;">
+
+<div class="row">
+
+  <div id="likes_area_<%= blog.id %>" class="col-xs-3">
+    <%= render partial: 'likes/like', locals: { blog: blog, like: @like }  %>
+  </div>
+
+  <div  class="col-xs-6">
+    <%= link_to t('Like Users'), blog_like_users_path(blog.id), remote: true %>
+  </div>
+
+  <div class="col-xs-3">
+    <% if current_user.id == blog.user_id %>
+      <%= link_to t('Destroy'), blog, method: :delete, data: { confirm: t('Are you sure?') }, remote: true %>
+    <% end %>
+  </div>
+
+</div>
+

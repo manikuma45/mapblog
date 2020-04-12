@@ -10,6 +10,10 @@ body {
   height: calc(100% - 55px); 
 }
 
+ul {
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
@@ -17,10 +21,6 @@ li {
 a {
   text-decoration: none;
   color: #333;
-}
-
-a:hover {
-  text-decoration: none;
 }
 
 h1 {
@@ -69,10 +69,10 @@ img[src*="/uploads/user/icon/"] {
 }
 
 #blogs_area {
-  width: 348px;
-  min-width: 300px;
+  width: 318px;
+  min-width: 318px;
   height:100%;
-  padding: 15px 15px 0 15px;
+  margin: 15px 15px 0 15px;
   overflow-y:scroll;
 }
 
@@ -84,17 +84,20 @@ img[src*="/uploads/user/icon/"] {
   margin-bottom: 15px;
 }
 
-.fa-heart {
+.fa-heart, 
+#blogs_area .fa-heart-o:hover {
   color: red;
 }
 
-.fa-heart:hover {
-  transform: scale(1.1, 1.1);
-}
-
+.fa-heart:hover, 
 #blogs_area .fa-heart-o:hover {
   transform: scale(1.1, 1.1);
-  color: red;
+}
+
+a[href*="/likes?"], 
+.fa-heart {
+  text-decoration: none;
+  margin: 0 5px;
 }
 
 .field {
@@ -107,4 +110,9 @@ img[src*="/uploads/user/icon/"] {
 
 .likes_blog {
   border-bottom: solid 2px #23527c;
+}
+
+.following:hover {
+  background: red;
+  color: white;
 }

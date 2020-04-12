@@ -3,3 +3,12 @@
   width: 348px;
   margin: 15px auto;
 }
+
+.btn-default {
+  outline:none !important;
+  border: none;
+}
+
+.alert {
+  text-align: center;
+}
