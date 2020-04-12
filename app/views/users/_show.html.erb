@@ -37,7 +37,7 @@
         <%= link_to t('Blogs'), user_path(id: @user.id)%>
     </div>
 
-    <div class='col-xs-offset-3 col-xs-3'>
+    <div class='col-xs-offset-3 col-xs-3 text-center'>
       <p class='likes_blog' ><%= t('Likes')%></p>
     </div>
 
@@ -47,7 +47,7 @@
         <p class='likes_blog' ><%= t('Blogs')%></p>
     </div>
 
-    <div class='col-xs-offset-3 col-xs-3'>
+    <div class='col-xs-offset-3 col-xs-3 text-center'>
       <%= link_to t('Likes'), user_likes_path(@user.id) %>
     </div>
 
