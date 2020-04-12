@@ -1,13 +1,5 @@
-.center-block {
-  background: white;
-}
-
 .well {
   background: white;
   width: 348px;
   margin: 15px auto;
-}
-
-.center-block:hover {
-  opacity: 0.6;
 }

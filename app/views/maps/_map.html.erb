@@ -3,6 +3,7 @@
   var newMarker;
 
   function changeCenter(e) {
+    console.log(e.target)
     var lat = e.target.dataset.lat;
     var lng = e.target.dataset.lng;
     map.panTo(new google.maps.LatLng(lat, lng));
