@@ -3,7 +3,6 @@
   var newMarker;
 
   function changeCenter(e) {
-    console.log(e.target)
     var lat = e.target.dataset.lat;
     var lng = e.target.dataset.lng;
     map.panTo(new google.maps.LatLng(lat, lng));
@@ -47,7 +46,7 @@
       }
 
       $.ajax({
-        url: 'blogs/new',
+        url: '/blogs/new',
         type: 'GET',
         data: {
           latitude: e.latLng.lat(),
@@ -71,7 +70,7 @@
       newMarker.addListener('click', function() {
         deleteNewMarker();
         $.ajax({
-          url: 'blogs',
+          url: '/blogs',
           type: 'GET',
           success: function() {
             console.log('success');
@@ -116,7 +115,7 @@
           }
           
           $.ajax({
-            url: `blogs/${markers[i][0]}`,
+            url: `/blogs/${markers[i][0]}`,
             type: 'GET',
             success: function() {
               console.log('success');
