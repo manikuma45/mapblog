@@ -111,3 +111,8 @@ a[href*="/likes?"],
 .likes_blog {
   border-bottom: solid 2px #23527c;
 }
+
+.following:hover {
+  background: red;
+  color: white;
+}

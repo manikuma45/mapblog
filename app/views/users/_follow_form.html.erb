@@ -10,9 +10,20 @@
   <% else %>
 
     <%= form_with(model: current_user.active_relationships.find_by(followed_id: user.id), method: :delete) do |f| %>
-      <%= f.submit t('Following'), class: 'btn btn-default' %>
+      <%= f.submit t('Following'), class: 'btn btn-default following' %>
     <% end %>
 
   <% end %>
   
 </div>
+
+<script>
+$('body').on({
+  mouseenter: function() {
+    $(this).attr("value", "フォロー解除");
+  },
+  mouseleave: function() {
+    $(this).attr("value", "フォロー中");
+  }
+}, '.following')
+</script>
