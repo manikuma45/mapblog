@@ -10,6 +10,10 @@ body {
   height: calc(100% - 55px); 
 }
 
+ul {
+  padding: 0;
+}
+
 li {
   list-style: none;
 }
