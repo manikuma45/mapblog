@@ -1,12 +1,11 @@
 <div class="text-center">
 
     <%= image_tag @user.icon.url %>
-
     <h1><%= @user.name %></h1>
 
   <div>
     <% if current_user.id == @user.id %>
-      <%= link_to 'edit', edit_user_registration_path %>
+      <%= link_to 'Edit', edit_user_registration_path %>
     <% else %>
       <%= render partial: 'users/follow_form', locals: { user: @user } %>
     <% end %>
