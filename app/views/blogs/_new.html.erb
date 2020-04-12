@@ -4,7 +4,7 @@
 
 <%= form_with(model: blog) do |form| %>
   <div class="field">
-    <%= form.text_area :content, class: 'form-control' %>
+    <%= form.text_area :content, class: 'form-control', id: 'text', placeholder: t(%q[What's happening?]) %>
   </div>
 
   <div class="field">
@@ -16,6 +16,21 @@
   <%= form.hidden_field :lng %>
 
   <div class="actions">
-    <%= form.submit class: 'btn btn-primary pull-right' %>
+    <%= form.submit class: 'btn btn-primary pull-right', id:"submit" %>
   </div>
 <% end %>
+
+<script>
+  $(function() {
+    if ( $('#text').val().length == 0 ) {
+      $('#submit').attr('disabled', 'disabled');
+    }
+    $('#text').bind('keydown keyup keypress change', function() {
+      if ( $(this).val().length > 0 ) {
+        $('#submit').removeAttr('disabled');
+      } else {
+        $('#submit').attr('disabled', 'disabled');
+      }
+    });
+  });
+</script>
