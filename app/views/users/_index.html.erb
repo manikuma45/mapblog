@@ -6,14 +6,14 @@
 
   <div class="row", style="background: white";>
 
-    <div class="col-xs-8">
+    <div class="col-xs-7">
       <%= link_to user_path(id: user.id) do %>
         <%= image_tag user.icon.thumb.url %>
         <%= user.name %>
       <% end %>
     </div>
 
-    <div class="col-xs-4">
+    <div class="col-xs-5">
       <%= render partial: 'users/follow_form', locals: { user: user } unless current_user.id == user.id %>
     </div>
 

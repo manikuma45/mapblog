@@ -5,7 +5,7 @@
 
   <div>
     <% if current_user.id == @user.id %>
-      <%= link_to 'Edit', edit_user_registration_path %>
+      <%= link_to t('Edit'), edit_user_registration_path %>
     <% else %>
       <%= render partial: 'users/follow_form', locals: { user: @user } %>
     <% end %>
@@ -18,12 +18,12 @@
 <div class="row">
   <div class="col-xs-6">
     <%= @user.following.count %>
-    <%= link_to 'Following', relationships_following_path(user_id: @user.id), remote: true %>
+    <%= link_to t('Following'), relationships_following_path(user_id: @user.id), remote: true %>
   </div>
 
   <div class="col-xs-6">
     <%= @user.followers.count %>
-    <%= link_to 'Followers', relationships_followers_path(user_id: @user.id), remote: true %>
+    <%= link_to t('Followers'), relationships_followers_path(user_id: @user.id), remote: true %>
   </div>
 </div>
 
@@ -34,21 +34,21 @@
   <% if @likes_blog == true %>
 
     <div class='col-xs-6'>
-        <%= link_to 'Blogs', user_path(id: @user.id)%>
+        <%= link_to t('Blogs'), user_path(id: @user.id)%>
     </div>
 
     <div class='col-xs-6'>
-      <%= link_to 'Likes', user_likes_path(@user.id), class: 'likes_blog' %>
+      <%= link_to t('Likes'), user_likes_path(@user.id), class: 'likes_blog' %>
     </div>
 
   <% else %>
 
     <div class='col-xs-6'>
-        <%= link_to 'Blogs', user_path(id: @user.id), class: 'likes_blog' %>
+        <%= link_to t('Blogs'), user_path(id: @user.id), class: 'likes_blog' %>
     </div>
 
     <div class='col-xs-6'>
-      <%= link_to 'Likes', user_likes_path(@user.id) %>
+      <%= link_to t('Likes'), user_likes_path(@user.id) %>
     </div>
 
   <% end %>
