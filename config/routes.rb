@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # get 'top', to: 'home#top'
   root 'home#top'
 
   get 'home', to: 'blogs#home'
@@ -16,6 +15,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :index] do
     get 'likes', to: 'likes#index'
+  end
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   resources :blogs do
