@@ -45,6 +45,10 @@ header {
   border-bottom: 1px solid #eee;
 }
 
+.header_logo img {
+  width: 80px;
+}
+
 .header_menu_item img {
   margin-bottom: 10px;
 }
@@ -67,7 +71,11 @@ header {
 }
 
 .top-message {
-  padding: 100px;
+  padding: 120px 0;
+}
+
+.top-message img {
+  width: 350px;
 }
 
 /* マーカーアイコン */
