@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'top', to: 'home#top'
+
   resources :relationships, only: [:create, :destroy]
   get 'relationships/following'
   get 'relationships/followers'
