@@ -1,12 +1,11 @@
 <div class="text-center">
 
     <%= image_tag @user.icon.url %>
-
     <h1><%= @user.name %></h1>
 
   <div>
     <% if current_user.id == @user.id %>
-      <%= link_to 'edit', edit_user_registration_path %>
+      <%= link_to t('Edit'), edit_user_registration_path %>
     <% else %>
       <%= render partial: 'users/follow_form', locals: { user: @user } %>
     <% end %>
@@ -19,12 +18,12 @@
 <div class="row">
   <div class="col-xs-6">
     <%= @user.following.count %>
-    <%= link_to 'Following', relationships_following_path(user_id: @user.id), remote: true %>
+    <%= link_to t('Following'), relationships_following_path(user_id: @user.id), remote: true %>
   </div>
 
   <div class="col-xs-6">
     <%= @user.followers.count %>
-    <%= link_to 'Followers', relationships_followers_path(user_id: @user.id), remote: true %>
+    <%= link_to t('Followers'), relationships_followers_path(user_id: @user.id), remote: true %>
   </div>
 </div>
 
@@ -34,22 +33,22 @@
 
   <% if @likes_blog == true %>
 
-    <div class='col-xs-6'>
-        <%= link_to 'Blogs', user_path(id: @user.id)%>
+    <div class='col-xs-3'>
+        <%= link_to t('Blogs'), user_path(id: @user.id)%>
     </div>
 
-    <div class='col-xs-6'>
-      <%= link_to 'Likes', user_likes_path(@user.id), class: 'likes_blog' %>
+    <div class='col-xs-offset-3 col-xs-3 text-center'>
+      <p class='likes_blog' ><%= t('Likes')%></p>
     </div>
 
   <% else %>
 
-    <div class='col-xs-6'>
-        <%= link_to 'Blogs', user_path(id: @user.id), class: 'likes_blog' %>
+    <div class='col-xs-3'>
+        <p class='likes_blog' ><%= t('Blogs')%></p>
     </div>
 
-    <div class='col-xs-6'>
-      <%= link_to 'Likes', user_likes_path(@user.id) %>
+    <div class='col-xs-offset-3 col-xs-3 text-center'>
+      <%= link_to t('Likes'), user_likes_path(@user.id) %>
     </div>
 
   <% end %>

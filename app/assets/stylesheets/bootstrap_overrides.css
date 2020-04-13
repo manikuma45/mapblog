@@ -1,13 +1,14 @@
-.center-block {
-  background: white;
-}
-
 .well {
   background: white;
   width: 348px;
-  margin: 15px auto;
+  margin: 50px auto;
 }
 
-.center-block:hover {
-  opacity: 0.6;
+.btn-default {
+  outline:none !important;
+  border: none;
+}
+
+.alert {
+  text-align: center;
 }

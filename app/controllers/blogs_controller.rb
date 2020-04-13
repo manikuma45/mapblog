@@ -34,15 +34,15 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.build(blog_params)
     if @blog.save
-      redirect_to root_url
+      redirect_to home_path
     else
-      render :new
+      render :new, notice: 'Blog was successfully created.' 
     end
   end
 
   def destroy
     @blog.destroy
-    redirect_back(fallback_location: root_path)
+    redirect_back(fallback_location: home_path)
   end
 
   private
@@ -62,7 +62,7 @@ class BlogsController < ApplicationController
   def ensure_correct_user
     @blog = Blog.find(params[:id])
     unless @blog.user_id == current_user.id
-      redirect_to root_path
+      redirect_to home_path
     end
   end
 end

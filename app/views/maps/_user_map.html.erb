@@ -1,5 +1,13 @@
 <script>
   var map;
+
+  function changeCenter(e) {
+    var lat = e.target.dataset.lat;
+    var lng = e.target.dataset.lng;
+    map.panTo(new google.maps.LatLng(lat, lng));
+  }
+
+
   function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
       center: {lat: 35.6581, lng: 139.7017},
@@ -54,15 +62,21 @@
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
           map.panTo({lat: markers[i][1], lng: markers[i][2]});
+
+          $.ajax({
+            url: `/blogs/${markers[i][0]}`,
+            type: 'GET',
+            success: function() {
+              console.log('success');
+            },
+            error: function() {
+              console.log('error')
+            }
+          });
         }
       })(marker, i));
     }
   }
 
-  function changeCenter(e) {
-    var lat = e.target.dataset.lat;
-    var lng = e.target.dataset.lng;
-    map.panTo(new google.maps.LatLng(lat, lng));
-  }
 </script>
 <script src="https://maps.googleapis.com/maps/api/js?key=<%=ENV["API_KEY"]%>&callback&callback=initMap" async defer></script>
