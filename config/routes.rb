@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  get 'top', to: 'home#top'
+  # get 'top', to: 'home#top'
+  root 'home#top'
+
+  get 'home', to: 'blogs#home'
 
   resources :relationships, only: [:create, :destroy]
   get 'relationships/following'
@@ -18,6 +21,4 @@ Rails.application.routes.draw do
   resources :blogs do
     get 'like_users', to: 'likes#users'
   end
-
-  root 'blogs#home'
 end
