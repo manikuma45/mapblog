@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root 'home#top'
+
+  get 'home', to: 'blogs#home'
+
   resources :relationships, only: [:create, :destroy]
   get 'relationships/following'
   get 'relationships/followers'
@@ -13,9 +17,11 @@ Rails.application.routes.draw do
     get 'likes', to: 'likes#index'
   end
 
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
+
   resources :blogs do
     get 'like_users', to: 'likes#users'
   end
-
-  root 'blogs#home'
 end
