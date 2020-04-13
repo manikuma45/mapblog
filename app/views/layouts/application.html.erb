@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Mapblog</title>
+    <%= favicon_link_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,20 +11,19 @@
   </head>
 
   <body>
-    <header>
-    
-      <div class="header_logo">
-        <%= link_to root_path do %>
-          <%= 'MapBlog' %>
-        <% end %>
-      </div>
-
-      <% if user_signed_in? %>
+    <% if user_signed_in? %>
+      <header>
+      
+        <div class="header_logo">
+          <%= link_to home_path do %>
+            <%= image_tag 'logo.png' %>
+          <% end %>
+        </div>
 
         <div class="header_menu">
 
           <div class="header_menu_item">
-            <%= link_to root_path do %>
+            <%= link_to home_path do %>
               <%= fa_icon 'home 2x' %>
             <% end %>
           </div>
@@ -41,15 +41,15 @@
           </div>
 
           <div class="header_menu_item">
-            <%= link_to destroy_user_session_path, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= link_to destroy_user_session_path, method: :delete, data: { confirm: t('Are you sure?') } do %>
               <%= fa_icon 'sign-out 2x'%>
             <% end %>
           </div>
           
         </div>
 
-      <% end %>
-    </header>
+      </header>
+    <% end %>
 
     <%= yield %>
   </body>
