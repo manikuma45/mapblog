@@ -7,6 +7,13 @@
 <% end %>
 
 <div class="well text-center">
+
+  <div class="form_logo">
+    <%= link_to root_path do %>
+     <%= image_tag 'logo.png' %>
+    <% end %>
+  </div>
+
   <h2><%= t('.sign_in') %></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -31,6 +38,10 @@
       <%= f.submit t('.sign_in'), class: 'btn btn-primary' %>
     </div>
   <% end %>
+
+  <div style="margin: 10px;">
+    <%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post %>
+  </div>
 
   <hr>
 
