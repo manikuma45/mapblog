@@ -3,9 +3,15 @@
   <div id="blogs_area">
     <%= render partial: 'blogs/index', locals: { blogs: @blogs } %>
   </div>
+  
+  <div class="map_area">
+  
+    <p class="bg-primary text-center flash"><i class="fa fa-map-marker"></i> 地図上をクリックして投稿しよう</p>
 
-  <div id="map"></div>
-  <div id="markers" data-markers="<%= @markers_json %>"></div>
-  <%= render partial: 'maps/map' %>
+    <div id="map"></div>
+    <div id="markers" data-markers="<%= @markers_json %>"></div>
+    <%= render partial: 'maps/map' %>
+
+  </div>
 
 </div>
