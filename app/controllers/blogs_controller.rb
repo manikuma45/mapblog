@@ -1,19 +1,26 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :set_blogs, only: [:home, :index, :create]
-  before_action :ensure_correct_user, only: [:destroy]
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!
 
   def home
-    @markers_json = Blog.all.map do |blog|
-      [
-        blog.id,
-        blog.lat,
-        blog.lng,
-        blog.content,
-        blog.image.thumb.url,
-        blog.user.icon.thumb.url,
-      ]
+    @markers_json = []
+    Blog.all.each do |blog|
+      if blog.image?
+        blog_image = blog.image.thumb.url
+      else
+        blog_image = false
+      end
+
+      @markers_json.push([
+          blog.id,
+          blog.lat,
+          blog.lng,
+          blog.content,
+          blog_image,
+          blog.user.icon.thumb.url,
+      ])
     end.to_json
   end
 
@@ -31,12 +38,23 @@ class BlogsController < ApplicationController
     )
   end
 
+  def edit
+  end
+
   def create
     @blog = current_user.blogs.build(blog_params)
     if @blog.save
       redirect_to home_path
     else
-      render :new, notice: 'Blog was successfully created.' 
+      render :new
+    end
+  end
+
+  def update
+    if @blog.update(blog_params)
+      redirect_to home_path
+    else
+      render :new
     end
   end
 
