@@ -5,15 +5,22 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
 
   def home
-    @markers_json = Blog.all.map do |blog|
-      [
-        blog.id,
-        blog.lat,
-        blog.lng,
-        blog.content,
-        blog.image.thumb.url,
-        blog.user.icon.thumb.url,
-      ]
+    @markers_json = []
+    Blog.all.each do |blog|
+      if blog.image?
+        blog_image = blog.image.thumb.url
+      else
+        blog_image = false
+      end
+
+      @markers_json.push([
+          blog.id,
+          blog.lat,
+          blog.lng,
+          blog.content,
+          blog_image,
+          blog.user.icon.thumb.url,
+      ])
     end.to_json
   end
 

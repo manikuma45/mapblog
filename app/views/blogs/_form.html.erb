@@ -1,0 +1,55 @@
+<%= link_to blogs_path, remote: true, onClick: "deleteNewMarker();" do %>
+  <%= fa_icon 'chevron-left' %>
+<% end %>
+
+<%= form_with(model: blog) do |form| %>
+  <div class="field">
+    <%= form.text_area :content, class: 'form-control', id: 'text', placeholder: t(%q[What's happening?]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.file_field :image, id: 'image_form', class:'form-control' %>
+  </div>
+
+  <div class="blogs_image">
+    <%= image_tag blog.image.url, id: 'image_preview'%>
+  </div>
+
+  <%= form.hidden_field :lat %>
+  <%= form.hidden_field :lng %>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary pull-right', id:"submit" %>
+  </div>
+<% end %>
+
+<script>
+  $(function() {
+    if ( $('#text').val().length == 0 ) {
+      $('#submit').attr('disabled', 'disabled');
+    }
+    $('#text').bind('keydown keyup keypress change', function() {
+      if ( $(this).val().length > 0 ) {
+        $('#submit').removeAttr('disabled');
+      } else {
+        $('#submit').attr('disabled', 'disabled');
+      }
+    });
+  });
+
+  $(function() {
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+    $('#image_preview').attr('src', e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+        }
+    }
+    $("#image_form").change(function(){
+        readURL(this);
+    });
+  });
+</script>
