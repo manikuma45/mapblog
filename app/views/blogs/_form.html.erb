@@ -7,14 +7,16 @@
     <%= form.text_area :content, class: 'form-control', id: 'text', placeholder: t(%q[What's happening?]) %>
   </div>
 
-  <div class="field">
+  <div class="field test">
     <%= form.label :image %>
     <%= form.file_field :image, id: 'image_form', class:'form-control' %>
   </div>
 
-  <div class="blogs_image">
+  <div class="blogs_image" id="blog_form_image">
     <%= image_tag blog.image.url, id: 'image_preview'%>
   </div>
+
+  <div id="image_clear" class="btn btn-link" style="display: none;">取り消し</div>
 
   <%= form.hidden_field :lat %>
   <%= form.hidden_field :lng %>
@@ -50,6 +52,18 @@
     }
     $("#image_form").change(function(){
         readURL(this);
+    });
+  });
+
+  $(function() {
+    $('input[type=file]').change(function() {
+      $('#image_clear').show();
+    });
+
+    $('#image_clear').click(function() {
+      $('input[type=file]').val('');
+      $(this).hide();
+      $('#blog_form_image').html("<%= j(image_tag blog.image.url, id: 'image_preview')%>");
     });
   });
 </script>
