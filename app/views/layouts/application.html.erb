@@ -54,7 +54,7 @@
           </div>
 
           <div class="header_menu_item">
-            <%= link_to destroy_user_session_path, method: :delete, data: { confirm: t('Are you sure?') } do %>
+            <%= link_to destroy_user_session_path, method: :delete, data: { confirm: t('Are you sure you want to log out?') } do %>
               <%= fa_icon 'sign-out 2x'%>
             <% end %>
           </div>
