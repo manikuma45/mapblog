@@ -4,9 +4,15 @@
     <%= render partial: 'users/show', locals: { user:@user, blogs: @blogs } %>
   </div>
 
+  <div class="map_area">
+
+    <p class="bg-primary text-center flash">閲覧モード中だよ！新規投稿は<i class="fa fa-home"></i>から</p>
+
   <div id="map"></div>
   <div id="markers" data-markers="<%= @markers_json %>"></div>
   
   <%= render partial: 'maps/user_map' %>
+
+  </div>
 
 </div>

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @blogs = @user.blogs.order(created_at: "DESC")
     @markers_json = []
-    Blog.all.each do |blog|
+    @blogs.each do |blog|
       if blog.image?
         blog_image = blog.image.thumb.url
       else
