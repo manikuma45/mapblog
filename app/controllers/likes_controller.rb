@@ -13,7 +13,7 @@ class LikesController < ApplicationController
     @user = User.find(params[:user_id])
     @blogs = @user.like_blogs.order(created_at: "DESC")
     @markers_json = []
-    Blog.all.each do |blog|
+    @blogs.each do |blog|
       if blog.image?
         blog_image = blog.image.thumb.url
       else
