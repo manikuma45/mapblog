@@ -22,6 +22,7 @@ gem 'bcrypt_pbkdf'
 gem 'devise'
 gem 'devise-i18n'
 gem 'font-awesome-rails'
+gem 'faker'
 
 
 group :development, :test do
@@ -35,7 +36,6 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  gem 'faker'
 end
 
 group :development do
