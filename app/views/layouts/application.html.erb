@@ -38,24 +38,28 @@
           <div class="header_menu_item">
             <%= link_to home_path do %>
               <%= fa_icon 'home 2x' %>
+              <p><%= 'Home' %></p>
             <% end %>
           </div>
 
           <div class="header_menu_item">
             <%= link_to user_likes_path(current_user.id) do %>
               <%= fa_icon 'heart-o 2x' %>
+              <p><%= t('Likes') %></p>
             <% end %>
           </div>
 
           <div class="header_menu_item">
             <%= link_to user_path(id: current_user.id) do %>
               <%= image_tag current_user.icon.thumb.url %>
+              <p><%= current_user.name %></p>
             <% end %>
           </div>
 
           <div class="header_menu_item">
             <%= link_to destroy_user_session_path, method: :delete, data: { confirm: t('Are you sure you want to log out?') } do %>
               <%= fa_icon 'sign-out 2x'%>
+              <p><%= t('sign_out') %></p>
             <% end %>
           </div>
           

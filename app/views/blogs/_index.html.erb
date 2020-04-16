@@ -1,3 +1,4 @@
+<% i = 0 %>
 <% blogs.each do |blog| %>
 
   <%= link_to user_path(blog.user.id) do %>
@@ -33,7 +34,10 @@
     </div>
 
   </div>
-    
-<hr>
+
+  <% i += 1 %> 
+  <% unless i == blogs.count %>
+    <hr>
+  <% end %>
 
 <% end %>
