@@ -1,19 +1,21 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   root 'home#top'
 
   get 'home', to: 'blogs#home'
 
-  resources :relationships, only: [:create, :destroy]
+  resources :relationships, only: %i[create destroy]
   get 'relationships/following'
   get 'relationships/followers'
 
-  resources :likes, only: [:create, :destroy]
+  resources :likes, only: %i[create destroy]
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
 
-  resources :users, only: [:show, :index] do
+  resources :users, only: %i[show index] do
     get 'likes', to: 'likes#index'
   end
 

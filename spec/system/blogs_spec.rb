@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # require 'rails_helper'
 
 # RSpec.describe "Blogs", type: :system do
@@ -17,7 +18,7 @@
 #         # post new_blog_path, xhr: true
 #         # xhr :post, new_blog_path
 #         # get :new, xhr: true
-        
+
 #         # expect(page).to have_link('Back')
 #       end
 #     end

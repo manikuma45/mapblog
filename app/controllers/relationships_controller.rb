@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class RelationshipsController < ApplicationController
   before_action :authenticate_user!
   respond_to? :js
   def create
     relationship = current_user
-                  .active_relationships
-                  .build(followed_id: params[:relationship][:followed_id])
+                   .active_relationships
+                   .build(followed_id: params[:relationship][:followed_id])
     relationship.save
     @user = User.find(relationship.followed_id)
   end
