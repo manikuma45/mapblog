@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class LikesController < ApplicationController
   def create
     @like = current_user.likes.create(blog_id: params[:blog_id])
@@ -11,23 +13,23 @@ class LikesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    @blogs = @user.like_blogs.order(created_at: "DESC")
+    @blogs = @user.like_blogs.order(created_at: 'DESC')
     @markers_json = []
     @blogs.each do |blog|
-      if blog.image?
-        blog_image = blog.image.thumb.url
-      else
-        blog_image = false
-      end
+      blog_image = if blog.image?
+                     blog.image.thumb.url
+                   else
+                     false
+                   end
 
       @markers_json.push([
-          blog.id,
-          blog.lat,
-          blog.lng,
-          blog.content,
-          blog_image,
-          blog.user.icon.thumb.url,
-      ])
+                           blog.id,
+                           blog.lat,
+                           blog.lng,
+                           blog.content,
+                           blog_image,
+                           blog.user.icon.thumb.url
+                         ])
     end.to_json
     @likes_blog = true
   end

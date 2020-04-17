@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -5,18 +7,18 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   mount_uploader :icon, IconUploader
-  
+
   has_many :blogs, dependent: :destroy
 
   has_many :likes, dependent: :destroy
   has_many :like_blogs, through: :likes, source: :blog
 
-  has_many :active_relationships, foreign_key: 'follower_id', 
-                                  class_name: 'Relationship', 
+  has_many :active_relationships, foreign_key: 'follower_id',
+                                  class_name: 'Relationship',
                                   dependent: :destroy
 
-  has_many :passive_relationships, foreign_key: 'followed_id', 
-                                   class_name: 'Relationship', 
+  has_many :passive_relationships, foreign_key: 'followed_id',
+                                   class_name: 'Relationship',
                                    dependent: :destroy
 
   has_many :following, through: :active_relationships, source: :followed
