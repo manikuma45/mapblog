@@ -18,6 +18,7 @@ https://mapblog.net
 * rails 5.2.3
 * ruby 2.6.3
 * Google Maps JavaScript API
+* geolocation API
 * Nginx, unicorn
 * AWS (EC2, S3, VPC, Route53, ACM)
 * Capistrano
