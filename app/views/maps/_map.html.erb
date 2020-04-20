@@ -38,6 +38,16 @@
         }
       ],
     });
+    
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+      });
+    } 
 
     map.addListener('click', function(e) {
       map.panTo({lat: e.latLng.lat(), lng: e.latLng.lng()}); 
