@@ -33,6 +33,16 @@
         }
       ],
     });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+        map.setCenter(pos);
+      });
+    } 
     
     var markersJson = document.getElementById('markers').getAttribute('data-markers');
     var markers = JSON.parse(markersJson);
