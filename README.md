@@ -12,15 +12,14 @@ MapBlogではマップ上にブログが表示されることで、どこでな�
 * AjaxによるUI/UXの向上
 
 ## URL
-http://mapblog.net/
-http://18.178.157.10
+https://mapblog.net
 
 ## バージョン情報、使用技術
 * rails 5.2.3
 * ruby 2.6.3
 * Google Maps JavaScript API
 * Nginx, unicorn
-* AWS (EC2, S3, VPC, Route53)
+* AWS (EC2, S3, VPC, Route53, ACM)
 * Capistrano
 * RSpec
 * PostogreSQL
