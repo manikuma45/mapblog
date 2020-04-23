@@ -30,6 +30,8 @@ class BlogsController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(blog_id: @blog.id)
+    @comments = @blog.comments
+    @comment = @blog.comments.build
   end
 
   def new
