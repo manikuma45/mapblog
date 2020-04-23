@@ -1,0 +1,35 @@
+<% comments.each do |comment| %>
+  <% if comment.id.present? %>
+
+      <%= link_to user_path(comment.user.id) do %>
+        <%= image_tag blog.user.icon.thumb.url %>
+        <%= comment.user.name %>
+      <% end %>
+
+      <%= '・' %><%= time_ago_in_words(comment.created_at) %>前
+
+      <div style="background: white;">
+
+        <p><%= comment.content %></p>
+
+      </div>
+
+      <hr>
+    
+  <% end %>
+<% end %>
+
+<script>
+  $(function() {
+    if ( $('#comment_content').val().length == 0 ) {
+      $('#submit').attr('disabled', 'disabled');
+    }
+    $('#comment_content').bind('keydown keyup keypress change', function() {
+      if ( $(this).val().length > 0 ) {
+        $('#submit').removeAttr('disabled');
+      } else {
+        $('#submit').attr('disabled', 'disabled');
+      }
+    });
+  });
+</script>

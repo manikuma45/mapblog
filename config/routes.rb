@@ -25,5 +25,6 @@ Rails.application.routes.draw do
 
   resources :blogs do
     get 'like_users', to: 'likes#users'
+    resources :comments
   end
 end

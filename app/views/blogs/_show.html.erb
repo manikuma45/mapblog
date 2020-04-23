@@ -30,7 +30,15 @@
   <%= render partial: 'likes/like', locals: { blog: blog, like: @like }  %>
 </div>
 
-<hr style="margin-bottom: 0;">
+<hr>
+
+<%= render partial: 'comments/form', locals: { comment: @comment, blog: @blog } %>
+
+<div id ="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, blog: @blog } %>
+</div>
+
+<hr>
 
 <div class="row" style="margin-bottom: 30px;">
 
