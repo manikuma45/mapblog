@@ -21,17 +21,23 @@
 
   <div class="row">
 
-    <div id="likes_area_<%= blog.id %>" class="col-xs-4">
+    <div id="likes_area_<%= blog.id %>" class="col-xs-3">
       <%= render partial: 'likes/like', locals: { blog: blog, like: Like.find_by(blog_id: blog.id, user_id: current_user.id) } %>
     </div>
 
-    <div  class="col-xs-4">
+    <div  class="col-xs-3">
       <%= link_to t('Edit'), edit_blog_path(blog.id), remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" if current_user.id == blog.user_id %>
     </div>
 
-    <div  class="col-xs-4">
-      <%= link_to t('Show'), blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);"%>
+    <div  class="col-xs-3">
+      <%= link_to t('Show'), blog, remote: true, data: {lat: "#{blog.lat}", lng: "#{blog.lng}"}, onClick: "changeCenter(event);" %>
     </div>
+
+    <div  class="col-xs-3">
+      <%= fa_icon("comment-o") %>
+      <%= blog.comments.count if blog.comments.count > 0 %>
+    </div>
+
 
   </div>
 
