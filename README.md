@@ -15,27 +15,28 @@ MapBlogではマップ上にブログが表示されることで、どこでな�
 https://mapblog.net
 
 ## バージョン情報、使用技術
-* rails 5.2.3
 * ruby 2.6.3
+* rails 5.2.3
+* PostogreSQL
 * Google Maps JavaScript API
 * geolocation API
 * Nginx, unicorn
 * AWS (EC2, S3, VPC, Route53, ACM)
 * Capistrano
 * RSpec
-* PostogreSQL
 * JavaScript, JQuery
 * Bootstrap 3
 
 ## 機能一覧
 * Google maps JavaScript apiを使用してmapを描画
 * blogに緯度経度をもたせてmap上に表示
-* blog機能(一覧、詳細、投稿)をmapと連動させてAjaxで処理
+* blog機能(一覧、詳細、投稿)をmapと連動(Ajax)
 * blogのCRUD機能
 * 画像アップロード機能(S3を使用)
 * ユーザー登録・ログイン機能（deviseを使用）
 * いいね機能（Ajax）
 * フォロー・フォロワー機能（Ajax）
+* blogに対してコメント機能（Ajax）
 
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/1khQZIqICsbPB3duqLTJevljtIXI39yOozGArGbwpdsQ/edit?usp=sharing
@@ -55,3 +56,11 @@ https://docs.google.com/spreadsheets/d/1Hqn8RsnYXWPft-tKlVLVLjOAFirNT0bpaYxarlDU
 * devise
 * devise-i18n
 * font-awesome-rails
+* faker
+
+* fog-aws
+* unicorn
+* capistrano
+
+* rspec-rails
+* capybara
